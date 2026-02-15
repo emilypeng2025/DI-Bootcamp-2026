@@ -84,12 +84,62 @@ print(5 != 3) #True
 # <=
 
 #logical operators - and/ or/ not
-print (True and True) #True
-print (True and False) #False
+# print (True and True) #True
+# print (True and False) #False
 
-print(True or False) #True
-print (False or True) #True
-print (False or False) #False
+# print(True or False) #True
+# print (False or True) #True
+# print (False or False) #False
 
-print(not True) #False
-print(not False) #True
+# print(not True) #False
+# print(not False) #True
+
+# type casting
+
+# price = 19.99
+# quantity = 3
+# total = f"Total: ${price * quantity}"
+# print(total)
+
+# name = input("What is your name?")
+# print(f"Hello, {name}")
+# age = input("What is your age?")
+# print(f"My age is, {age}")
+
+#The if statement
+
+age = 15
+
+if age >= 18:
+    print("You can vote!")
+print("Finished!")
+
+score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+
+print(grade)
+
+my_age = 22
+has_license = True
+
+if my_age >= 18:
+    if has_license:
+        print("you can drive")
+    else:
+        print("get a license")
+else:
+    print("too young")
+
+
+# TERNARY OPERATOR
+
+status = "adult" if my_age >= 18 else "minor"
+print(status)
