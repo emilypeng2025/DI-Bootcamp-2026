@@ -46,3 +46,35 @@ my_list = []
 for num in my_number:
     my_list.append(num)
 print(my_list)
+
+# if statement
+
+user_name = input("what is your name? ")
+
+if user_name == "sergei":
+    print("Privet")
+elif user_name == "ravite":
+    print("Bonjour")
+elif user_name == "alex":
+    print("privet")
+elif user_name == "dolev":
+    print("shalom")
+elif user_name == "xiao":
+    print("ni hao")
+elif user_name == "aaron":
+    print("ahoy")
+elif user_name == "other":
+    print("hello")
+
+
+greetings = {
+    "sergei": "Privet",
+    "revite": "Bonjour",
+    "alex": "hola",
+    "dolev": "shalom",
+    "xiao": "ni hao",
+    "aaron": "ahoy",
+    "other": "hello"
+}
+
+print(greetings[user_name])
