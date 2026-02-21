@@ -348,7 +348,7 @@ import random
 def get_random_temp():
     rand_temp = random.randint(-10, 40)
     #or bonus to get more accurate temp values:
-    #rand_temp = random.unifor(-10, 40)
+    #rand_temp = random.uniform(-10, 40)
     return rand_temp
 
 def main():
