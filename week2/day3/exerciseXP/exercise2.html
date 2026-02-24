@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="firstname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form> 
+    <ul class="usersAnswer"></ul>
+
+    <script>
+        // Retrieve the form and console.log it.
+        let x = document.querySelector("form");
+        console.log(x);
+
+        // Retrieve the inputs by their id and console.log them.
+        let input1 = document.getElementById("fname");
+        console.log(input1);
+        let input2 = document.getElementById("lname");
+        console.log(input2);
+        let input3 = document.getElementById("submit");
+        console.log(input3)
+
+        // Retrieve the inputs by their name attribute and console.log them.
+        let firstName = document.getElementsByName("firstname")[0];
+        console.log(firstName);
+        let lastName = document.getElementsByName("lastname")[0];
+        console.log(lastName);
+
+        // When the user submits the form (ie. submit event listener)
+        // use event.preventDefault(), why ?
+        //because the button is type="submit" inside a <form>, clickiing it automatically submits the form, refreshes the page, clears everything and sends data. 
+            //if we want the input to stay there so we can read the input values, add them to <ul> we dont want the page to refresh immediately. event.preventDefault()stops the browser's default behavior which is submit the page and refresh the page.
+        // get the values of the input tags,
+        // make sure that they are not empty,
+        // create an li per input value,
+        // then append them to a the <ul class="usersAnswer"></ul>, below the form.
+        // The output should be : 
+        
+        let form = document.querySelector("form");
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            let firstValue = firstName.value;
+            let lastValue = lastName.value;
+
+            if (firstValue === "" || lastValue === "") {
+            alert("Please fill in both fields.");
+            return;
+            }
+
+            console.log(firstValue);
+            console.log(lastValue);
+
+            // 1️⃣ Select the <ul>
+            const ul = document.querySelector(".usersAnswer");
+
+            // 2️⃣ Create a new <li> element
+            const li = document.createElement("li");
+            const li2 = document.createElement("li");
+
+            // 3️⃣ Put text inside it
+            li.textContent = "First name: " + firstValue;  
+            li2.textContent = "Last name: " + lastValue;
+
+            // 4️⃣ Append it to the <ul>
+            ul.appendChild(li);
+            ul.appendChild(li2);
+        });
+
+    </script>
+</body>
+</html>
