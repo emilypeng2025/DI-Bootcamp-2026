@@ -1,0 +1,92 @@
+/* CSS 负责：
+	•	排列
+	•	大小
+	•	外观 */
+
+/* flex-wrap */
+/* 
+#palette{
+}
+
+.color-swatch{
+}
+
+canvas{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pixel{
+} */
+
+
+/* Make sizing predictable (padding/border won't break widths) */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Basic page layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f6f6f6;
+  }
+  
+  /* Palette grid (colors) grid = 网格 CSS Grid 是一种布局方式 Palette调色板*/
+  #palette {
+    display: grid;
+    grid-template-columns: repeat(10, 28px);
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+  /* }一行 20 个格子 每个 28px 宽*/
+  
+  /* Each color box in palette */
+  .color {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  /* .color{} selects all elements with class = "color" The dot . means “class selector”. in HTML <div class="color"></div>*/
+  
+  /* Highlight the selected color */
+  .color.selected {
+    border-color: black;
+    outline: 2px solid black;
+  }
+  
+  /* Controls row */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .hint {
+    margin: 0;
+    color: #555;
+  }
+  
+  /* Board grid (blank squares) */
+  #board {
+    display: grid;
+    grid-template-columns: repeat(40, 12px);
+    gap: 1px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    width: fit-content;
+  }
+  
+  .cell {
+    width: 12px;
+    height: 12px;
+    background: white;   
+    border: 1px solid #eee;
+  }
+
+

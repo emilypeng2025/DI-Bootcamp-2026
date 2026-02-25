@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Squares</title>
+
+    <!-- linke to CSS File here-->
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+    <h1>Coloring Squares</h1>
+
+    <!-- Color palette (JS fills this with color buttons) -->
+    <div id="palette" aria-label="Color palette"></div>
+  
+    <!-- Controls -->
+    <div class="controls">
+      <button id="clearBtn" type="button">Clear</button>
+      <p class="hint">Tip: click and drag to draw</p>
+    </div>
+  
+    <!-- Drawing board (JS will fill this with square cells) -->
+    <div id="board" aria-label="Drawing board"></div>
+  
+    <!-- Link your JS file (put it at the end so elements exist before JS runs) -->
+    <script src="coloring.js"></script>
+
+</body>
+</html>
