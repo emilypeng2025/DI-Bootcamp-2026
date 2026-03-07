@@ -300,7 +300,7 @@ const weightInKg = (kg) => kg * 1000;
     name.textContent = userName;     // Put the user's name inside the <span>
 
     const img = document.createElement("img");     // Create an <img> element for the profile picture 创建一个 图片元素 但它需要一个 图片地址 才能显示。
-    img.src = "https://via.placeholder.com/40";     //浏览器会去这个网址下载图片。
+    img.src = "https://i.pravatar.cc/40";     //浏览器会去这个网址下载图片。
     img.style.width = "40px";       // Set the image width to 40 pixels
     img.style.borderRadius = "50%";         // Make the image round (circle profile picture)
 
