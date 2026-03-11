@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w3d1exercise</title>
+</head>
+<body>
+
+<script>
+// What you will learn:
+// Array methods
+// Destructuring
+
+
+// 🌟 Exercise 1 : Colors
+// Instructions
+// Using this array :
+
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+// Write a JavaScript program that displays the colors in the following order : “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
+// Check if at least one element of the array is equal to the value “Violet”. If yes, console.log("Yeah"), else console.log("No...")
+// Hint : Use the array methods taught in class. Look at the lesson Array Methods.
+
+//My answer: 1. use .map() method because i need to copy the array and made a new array with changes of putting the sentences. 
+// 2. or i can just use .forEach method that can get to the index of each element, loop the array and console.log each element with (`${index}`# choice is `${element}`)
+colors.forEach((color, index) => {
+    // console.log(`${index+1}` + "# choice is " + `${color}`)
+    console.log(`${index + 1}# choice is ${color}`);
+});
+
+// 1# choice is Blue // exercise.html:28 
+// 2# choice is Green // exercise.html:28 
+// //3# choice is Red
+// exercise.html:28 //4# choice is Orange
+// exercise.html:28 5# choice is Violet
+// exercise.html:28 6# choice is Indigo
+// exercise.html:28 7# choice is Yellow
+
+const secondColors = colors.map((color,index) => `${index+1}` + "# choice is " + `${color}`)
+console.log(secondColors)
+// output: 
+// [
+//  "1# choice is Blue",
+//  "2# choice is Green",
+//  "3# choice is Red",
+//  ...
+// ]
+
+if (colors.some(color => color === "Violet")) {
+    console.log("Yeah");
+} else {
+    console.log("No...");
+}
+
+// or 
+// if (colors.includes("Violet")) {
+//     console.log("Yeah");
+// } else {
+//     console.log("No...");
+// }
+
+
+
+
+// 🌟 Exercise 2 : Colors #2
+// Instructions
+// Using these arrays :
+
+// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th","st","nd","rd"];
+// Write a JavaScript program that displays the colors in the following order : “1st choice is Blue .” “2nd choice is Green.” “3rd choice is Red.” ect…
+// Hint : Use the array methods taught in class and ternary operator.
+//1️⃣ 遍历数组 use .forEach() 2️⃣ 给数字加 序数后缀（st / nd / rd / th）
+//The ternary operator is a short way to write an if...else statement in one line.
+//1️⃣ Basic Syntax: condition ? value_if_true : value_if_false
+// here:
+// condition1 ? result1
+// : condition2 ? result2
+// : condition3 ? result3
+// : default_result
+
+
+colors.forEach((color, index) => {
+    let position = index + 1;
+    let suffix = position === 1 ? ordinal[1]
+               : position === 2 ? ordinal[2]
+               : position === 3 ? ordinal[3]
+               : ordinal[0];
+
+    console.log(`${position}${suffix} choice is ${color}`);
+
+})
+
+
+// Exercise 3 : Analyzing
+// Instructions
+// Analyze these pieces of code before executing them. What will be the outputs ?
+// ------1------
+const fruits = ["apple", "orange"];
+const vegetables = ["carrot", "potato"];
+
+const result = ['bread', ...vegetables, 'chicken', ...fruits];
+console.log(result);
+//it will print an array of all the elements in result including fruits and vegetables, namely, ["bread","carrot","potato","chicken","apple","orange"]
+//The spread operator ... expands the elements of an array.
+
+
+// ------2------
+const country = "USA";
+console.log([...country]);
+//["U", "S", "A"] const country = "USA": A string is treated like an array of characters.
+
+// ------Bonus------
+// let newArray = [...[,,]];
+// console.log(newArray);
+
+//Inside the array:[,,] 
+// [empty, empty] These are called empty slots (holes).
+// When spreading them:...[,,]
+// JavaScript converts them to undefined. [undefined, undefined]
+
+
+
+
+
+
+
+
+// 🌟 Exercise 4 : Employees
+// Instructions
+// Using this array:
+
+const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+// Using the map() method, push into a new array the firstname of the user and a welcome message. You should get an array that looks like this :
+// const welcomeStudents = ["Hello Bradley", "Hello Chloe", "Hello Jonathan", "Hello Michael", "Hello Robert", "Hello Wes", "Hello Zach"]
+
+// 1st: const welcomeStudents = users.map(user => "Hello " + user.firstName);
+// 2nd: or 这是 object destructuring 的写法: users.map(({firstName}) => firstName)
+// 3rd: modern Javascript/cleaner:
+const welcomeStudents = users.map(user => `Hello ${user.firstName}`);
+console.log(welcomeStudents);
+
+
+// 2. Using the filter() method, create a new array, containing only the Full Stack Residents.
+//What filter() does? filter() returns a new array containing only the elements that match the condition.
+//array.filter(element => condition)
+const fullStackResidents = users.filter(user => user.role ==="Full Stack Resident")
+// 3. Bonus : Chain the filter method with a map method, to return an array containing only the lastName of the Full Stack Residents.
+const fullStaackNames = users
+    .filter(user => user.role === "Full Stack Resident")
+    .map(user => user.lastName);
+console.log(fullStaackNames);
+
+
+// 🌟 Exercise 5 : Star Wars
+// Instructions
+// Using this array 
+const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+// Use the reduce() method to combine all of these into a single string.
+
+const sentence = epic.reduce((accumulator, word) =>  accumulator + " " + word);
+console.log(sentence); 
+//reduce() syntax
+// array.reduce((accumulator, currentValue) => {
+//    return something;
+// }, initialValue)
+//part: accumulator meaning: stores the growing result
+//part: currentValue meaning: current item in array
+
+
+
+
+// 🌟 Exercise 6 : Employees #2
+// Instructions
+// Using this object:
+
+const students = [{name: "Ray", course: "Computer Science", isPassed: true}, 
+               {name: "Liam", course: "Computer Science", isPassed: false}, 
+               {name: "Jenner", course: "Information Technology", isPassed: true}, 
+               {name: "Marco", course: "Robotics", isPassed: true}, 
+               {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
+               {name: "Jamie", course: "Big Data", isPassed: false}];
+// Using the filter() method, create a new array, containing the students that passed the course.
+// Bonus : Chain the filter method with a forEach method, to congratulate the students with their name and course name (ie. “Good job Jenner, you passed the course in Information Technology”, “Good Job Marco you passed the course in Robotics” ect…)
+const passStudents = students.filter(student => student.isPassed === true);
+
+const congratulatePassStudents = students
+    .filter(student => student.isPassed)
+    .map(student => `Good job ${student.name}, you passed the course in ${student.course}`);
+
+console.log(congratulatePassStudents);
+
+</script>   
+
+
+</body>
+</html>
+
