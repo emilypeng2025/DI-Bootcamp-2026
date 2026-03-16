@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anagram</title>
+</head>
+<body>
+    <script>
+// Daily challenge: Anagram
+// Last Updated: February 9th, 2026
+
+// What You will learn :
+// Functions
+// Array methods
+
+
+// Instructions
+// Create a function that:
+
+// takes in two strings as two parameters
+// and returns a boolean that indicates whether or not the first string is an anagram of the second string.
+// Some Help
+
+// What is an anagram?
+// An anagram is another word or phrase formed by rearranging letters of the first word or phrase.
+
+
+// Example of anagrams
+
+// "Astronomer" is an anagram of "Moon starer"
+// "School master" is an anagram of "The classroom"
+// "The Morse Code" is an anagram of "Here come dots"
+
+function comparing(string1, string2){
+    const cleanString1 = string1.toLowerCase().replace(/\s/g, "");
+    const cleanString2 = string2.toLowerCase().replace(/\s/g, "");
+
+    const sortString1 = cleanString1.split("").sort()
+    const sortString2 = cleanString2.split("").sort()
+
+    const sorted1 = sortString1.join("")
+    const sorted2 = sortString2.join("")
+    
+    if (sorted1 === sorted2){
+        return `${string1} is an anagram of ${string2}`;
+    } else {
+        return `${string1} is not an anagram of ${string2}`
+    };
+}
+
+// clean string (.replace(" ", "") only replaces one occurrence) 
+//               What a Regular Expression is? A regular expression (RegEx) is a pattern used to search text.
+//               What the g (global flag) means?Flags modify how the pattern behaves.
+//              // this code / /g means: space character, globally
+                // Even better pattern for spaces: Instead of just " " we often use: /\s/g (\s means any whitespace character including spaces, tabs and line breaks)
+// ↓
+// split into letters
+// ↓
+// sort letters
+// ↓
+// join letters
+// ↓
+// compare results
+
+// Do we need to consider whitespace?
+// Trim whitespace prior to comparison.
+
+    </script>
+</body>
+</html>
