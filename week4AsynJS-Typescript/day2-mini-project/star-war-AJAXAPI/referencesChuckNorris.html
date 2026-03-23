@@ -1,0 +1,94 @@
+<!-- from last week/ week4day1 inclass async await content - project chuck norris jokes 
+ the chucky.html and chuckyAW.html by Aaron
+ can be used as a reference-->
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuck Norris</title>
+</head>
+<body>
+  <h1>Chuck Norris</h1>
+  <button id="btn">Click for a joke!</button>
+  <p id="joke"></p>
+  
+  <script defer>
+    let joke = document.getElementById('joke')
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', getJoke)
+
+    function getJoke() {
+      fetch('https://api.chucknorris.io/jokes/random?category=dev')
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          } else {
+            throw new Error("There was a mistake")
+          }
+        })
+        .then(data => {
+          joke.innerText = data.value
+        })
+        .catch(error => console.log(error))
+        .finally(() => console.log('all done'));
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+https://github.com/wolf-math/DI192/blob/main/week4/day1/cn/chuckyAW.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuck Norris</title>
+</head>
+<body>
+  <h1>Chuck Norris</h1>
+  <button id="btn">Click for a joke!</button>
+  <p id="joke"></p>
+  
+  <script defer>
+
+    let joke = document.getElementById('joke')
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', getJoke)
+
+    async function getJoke() {
+      try {
+        const response = await fetch('https://api.chucknorris.io/jokes/random?category=dev')
+        if (response.ok) {
+          let jsonJoke = await response.json()
+          let displayJoke = jsonJoke.value
+          joke.innerText = displayJoke
+        } else {
+          throw new Error ("didn't get the joke!")
+        }
+      } catch {
+        console.log("there was an error")
+      }
+ -->
