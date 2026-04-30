@@ -1,0 +1,26 @@
+.app {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+.language-card {
+  width: 350px;
+  margin: 15px auto;
+  padding: 15px;
+  background-color: #fff7d6;
+  border: 1px solid #f1d27a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+button {
+  background: none;
+  border: none;
+  color: green;
+  font-weight: bold;
+  cursor: pointer;
+}
